@@ -6,9 +6,15 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 $routes->get('/', 'Home::index');
+$routes->get("sobreNos", "Home::sobreNos");
+$routes->get("veterinarios", "Home::veterinarios");
+$routes->get("servicos", "Home::servicos");
+$routes->get("precos", "Home::precos");
+$routes->get("blog", "Home::blog");
+$routes->get("contato", "Home::contato");
 $routes->get("login", "Home::login");
-$routes->get("faleconosco", "Home::faleConosco");
-$routes->get("produtodetalhes/(:num)/(:any)", "Home::produtoDetalhes/$1/$2");
+
+//
 
 $routes->group('Categoria', static function ($routes) {
     $routes->get('index', 'Categoria::index');

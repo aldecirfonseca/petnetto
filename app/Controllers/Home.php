@@ -4,31 +4,48 @@ namespace App\Controllers;
 
 class Home extends BaseController
 {
+    public function __construct()
+    {
+        helper("utilits");
+    }
+
     public function index(): string
     {
-        //return view('welcome_message');
-        return view(
-            "home", 
-            [
-                "titulo" => "Seja bem vindo(a).",
-                "dataHora" => date("d/m/Y H:i:s")
-            ]
-        );
+        return view("home");
+    }
+
+    public function sobreNos()
+    {
+        return view("sobrenos");
+    }
+
+    public function veterinarios()
+    {
+        return view("veterinarios");
+    }
+
+    public function servicos()
+    {
+        return view("servicos");
+    }
+
+    public function precos()
+    {
+        return view("precos");
+    }
+
+    public function blog()
+    {
+        return view("blog");
+    }
+
+    public function contato()
+    {        
+        return view("blog");
     }
 
     public function login()
     {
         return view("login");
-    }
-
-    public function faleConosco()
-    {
-        echo "Fale conosco.";
-    }
-
-    public function produtoDetalhes($id, $acao)
-    {
-        echo "Produto: " . $id;
-        echo "<br />Ação: " . $acao;
     }
 }
