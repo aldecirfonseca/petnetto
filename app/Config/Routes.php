@@ -6,7 +6,7 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 $routes->get('/', 'Home::index');
-$routes->get("sobreNos", "Home::sobreNos");
+$routes->get("sobrenos", "Home::sobrenos");
 $routes->get("veterinarios", "Home::veterinarios");
 $routes->get("servicos", "Home::servicos");
 $routes->get("precos", "Home::precos");
@@ -16,9 +16,10 @@ $routes->get("login", "Home::login");
 
 //
 
-$routes->group('Categoria', static function ($routes) {
-    $routes->get('index', 'Categoria::index');
-    $routes->get('form/(:alpha)/(:num)', 'Categoria::form/$1/$2');
-    $routes->post("store", "Categoria::store");
-    $routes->post("delete", "Categoria::delete");
+$routes->group('Uf', static function ($routes) {
+    $routes->get('/', 'Uf::index'); 
+    $routes->get('index', 'Uf::index');
+    $routes->get('form/(:alpha)/(:num)', 'Uf::form/$1/$2');
+    $routes->post("store", "Uf::store");
+    $routes->post("delete", "Uf::delete");
 });

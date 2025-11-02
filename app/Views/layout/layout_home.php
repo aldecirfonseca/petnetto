@@ -68,12 +68,13 @@
 				<div class="collapse navbar-collapse" id="ftco-nav">
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item <?= (getPagina() == 'home' ? 'active' : '') ?>"><a href="<?= base_url() ?>" class="nav-link">Home</a></li>
-						<li class="nav-item <?= (getPagina() == 'sobrenos' ? 'active' : '') ?>"><a href="<?= base_url() ?>sobreNos" class="nav-link">Sobre nós</a></li>
+						<li class="nav-item <?= (getPagina() == 'sobrenos' ? 'active' : '') ?>"><a href="<?= base_url() ?>sobrenos" class="nav-link">Sobre nós</a></li>
 						<li class="nav-item <?= (getPagina() == 'veterinarios' ? 'active' : '') ?>"><a href="index.php?pagina=veterinarios" class="nav-link">Veterinários</a></li>
 						<li class="nav-item <?= (getPagina() == 'servicos' ? 'active' : '') ?>"><a href="index.php?pagina=servicos" class="nav-link">Serviços</a></li>
 						<li class="nav-item <?= (getPagina() == 'precos' ? 'active' : '') ?>"><a href="index.php?pagina=precos" class="nav-link">Preços</a></li>
 						<li class="nav-item <?= (getPagina() == 'blog' ? 'active' : '') ?>"><a href="index.php?pagina=blog" class="nav-link">Blog</a></li>
 						<li class="nav-item <?= (getPagina() == 'contato' ? 'active' : '') ?>"><a href="index.php?pagina=contato" class="nav-link">Contato</a></li>
+						<li class="nav-item <?= (getPagina() == 'login' ? 'active' : '') ?>"><a href="<?= base_url() ?>login" class="nav-link">Area Restrita</a></li>
 					</ul>
 				</div>
 			</div>
@@ -133,23 +134,23 @@
 
 		<!-- loader -->
 
-		<script src="js/jquery.min.js"></script>
-		<script src="js/jquery-migrate-3.0.1.min.js"></script>
-		<script src="js/popper.min.js"></script>
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/jquery.easing.1.3.js"></script>
-		<script src="js/jquery.waypoints.min.js"></script>
-		<script src="js/jquery.stellar.min.js"></script>
-		<script src="js/jquery.animateNumber.min.js"></script>
-		<script src="js/bootstrap-datepicker.js"></script>
-		<script src="js/jquery.timepicker.min.js"></script>
-		<script src="js/owl.carousel.min.js"></script>
-		<script src="js/jquery.magnific-popup.min.js"></script>
-		<script src="js/scrollax.min.js"></script>
+		<script src="<?= base_url("assets/js/jquery.min.js") ?>"></script>
+		<script src="<?= base_url("assets/js/jquery-migrate-3.0.1.min.js") ?>"></script>
+		<script src="<?= base_url("assets/js/popper.min.js") ?>"></script>
+		<script src="<?= base_url("assets/js/bootstrap.min.js") ?>"></script>
+		<script src="<?= base_url("assets/js/jquery.easing.1.3.js") ?>"></script>
+		<script src="<?= base_url("assets/js/jquery.waypoints.min.js") ?>"></script>
+		<script src="<?= base_url("assets/js/jquery.stellar.min.js") ?>"></script>
+		<script src="<?= base_url("assets/js/jquery.animateNumber.min.js") ?>"></script>
+		<script src="<?= base_url("assets/js/bootstrap-datepicker.js") ?>"></script>
+		<script src="<?= base_url("assets/js/jquery.timepicker.min.js") ?>"></script>
+		<script src="<?= base_url("assets/js/owl.carousel.min.js") ?>"></script>
+		<script src="<?= base_url("assets/js/jquery.magnific-popup.min.js") ?>"></script>
+		<script src="<?= base_url("assets/js/scrollax.min.js") ?>"></script>
 		<script
 			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-		<script src="js/google-map.js"></script>
-		<script src="js/main.js"></script>
+		<script src="<?= base_url("assets/js/google-map.js") ?>"></script>
+		<script src="<?= base_url("assets/js/main.js") ?>"></script>
 
 	</body>
 </html>

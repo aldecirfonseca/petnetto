@@ -3,7 +3,7 @@
 <?= $this->section("conteudo") ?>
 
     <div class="hero-wrap js-fullheight"
-        style="background-image: url('images/bg_1.jpg');"
+        style="background-image: url('<?= base_url("assets/images/bg_1.jpg") ?>');"
         data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container">
@@ -78,7 +78,7 @@
     </section>
 
     <section class="ftco-section testimony-section"
-        style="background-image: url('images/bg_2.jpg');">
+        style="background-image: url('<?= base_url("assets/images/bg_2.jpg") ?>);">
         <div class="overlay"></div>
         <div class="container">
             <div class="row justify-content-center pb-5 mb-3">
@@ -156,8 +156,8 @@
             <div class="row">
                 <div class="col-md-4 ftco-animate">
                     <div class="work mb-4 img d-flex align-items-end"
-                        style="background-image: url(images/gallery-1.jpg);">
-                        <a href="images/gallery-1.jpg"
+                        style="background-image: url('<?= base_url("assets/images/gallery-1.jpg") ?>');">
+                        <a href="<?= base_url("assets/images/gallery-1.jpg") ?>"
                             class="icon image-popup d-flex justify-content-center align-items-center">
                             <span class="fa fa-expand"></span>
                         </a>
@@ -171,8 +171,8 @@
                 </div>
                 <div class="col-md-4 ftco-animate">
                     <div class="work mb-4 img d-flex align-items-end"
-                        style="background-image: url(images/gallery-2.jpg);">
-                        <a href="images/gallery-2.jpg"
+                        style="background-image: url('<?= base_url("assets/images/gallery-2.jpg") ?>');">
+                        <a href="<?= base_url("assets/images/gallery-2.jpg") ?>"
                             class="icon image-popup d-flex justify-content-center align-items-center">
                             <span class="fa fa-expand"></span>
                         </a>
@@ -186,8 +186,8 @@
                 </div>
                 <div class="col-md-4 ftco-animate">
                     <div class="work mb-4 img d-flex align-items-end"
-                        style="background-image: url(images/gallery-3.jpg);">
-                        <a href="images/gallery-3.jpg"
+                        style="background-image: url('<?= base_url("assets/images/gallery-3.jpg") ?>');">
+                        <a href="<?= base_url("assets/images/gallery-3.jpg") ?>"
                             class="icon image-popup d-flex justify-content-center align-items-center">
                             <span class="fa fa-expand"></span>
                         </a>
@@ -202,8 +202,8 @@
 
                 <div class="col-md-4 ftco-animate">
                     <div class="work mb-4 img d-flex align-items-end"
-                        style="background-image: url(images/gallery-4.jpg);">
-                        <a href="images/gallery-4.jpg"
+                        style="background-image: url('<?= base_url("assets/images/gallery-4.jpg") ?>');">
+                        <a href="<?= base_url("assets/images/gallery-4.jpg") ?>"
                             class="icon image-popup d-flex justify-content-center align-items-center">
                             <span class="fa fa-expand"></span>
                         </a>
@@ -217,8 +217,8 @@
                 </div>
                 <div class="col-md-4 ftco-animate">
                     <div class="work mb-4 img d-flex align-items-end"
-                        style="background-image: url(images/gallery-5.jpg);">
-                        <a href="images/gallery-5.jpg"
+                        style="background-image: url('<?= base_url("assets/images/gallery-5.jpg") ?>');">
+                        <a href="<?= base_url("assets/images/gallery-5.jpg") ?>"
                             class="icon image-popup d-flex justify-content-center align-items-center">
                             <span class="fa fa-expand"></span>
                         </a>
@@ -232,8 +232,8 @@
                 </div>
                 <div class="col-md-4 ftco-animate">
                     <div class="work mb-4 img d-flex align-items-end"
-                        style="background-image: url(images/gallery-6.jpg);">
-                        <a href="images/gallery-6.jpg"
+                        style="background-image: url('<?= base_url("assets/images/gallery-6.jpg") ?>');">
+                        <a href="<?= base_url("assets/images/gallery-6.jpg") ?>"
                             class="icon image-popup d-flex justify-content-center align-items-center">
                             <span class="fa fa-expand"></span>
                         </a>

@@ -1,4 +1,8 @@
-    <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_2.jpg');"
+<?= $this->extend("layout\layout_home") ?>
+
+<?= $this->section("conteudo") ?>
+
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('<?= base_url("assets/images/bg_2.jpg") ?>');"
         data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container">
@@ -18,7 +22,7 @@
             <div class="row d-flex no-gutters">
                 <div class="col-md-5 d-flex">
                     <div class="img img-video d-flex align-self-stretch align-items-center justify-content-center justify-content-md-center mb-4 mb-sm-0"
-                        style="background-image:url(images/about-1.jpg);">
+                        style="background-image:url('<?= base_url("assets/images/about-1.jpg") ?>');">
                     </div>
                 </div>
                 <div class="col-md-7 pl-md-5 py-md-5">
@@ -45,3 +49,5 @@
             </div>
         </div>
     </section>
+
+<?= $this->endSection() ?>
