@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class UfModel extends Model
+class UfModel extends BaseModel
 {
     protected $table      = 'uf';
     protected $primaryKey = 'id';
@@ -19,34 +19,22 @@ class UfModel extends Model
     protected $useTimestamps = true;
     protected $useSoftDeletes = true;
 
-    protected $validationRules      = [
-        "sigla" => [
-            "label" => "UF",
-            "rules" => "required|min_length[2]"
+    protected $validationRules = [
+        "sigla"  => [
+            "label" => 'UF',
+            "rules" => 'required'
         ],
-        "descricao" => [
-            "label" => "Nome da UF",
-            "rules" => "required|min_length[3]|max_length[50]"
+        "descricao"  => [
+            "label" => 'Nome da UF',
+            "rules" => 'required|min_length[3]|max_length[60]'
         ],
-        "regiao" => [
-            "label" => "Região",
-            "rules" => "required|integer"
+        "regiao"  => [
+            "label" => 'Região',
+            "rules" => 'required|integer'
         ],
-        "codIBGE" => [
-            "label" => "Código do IBGE da UF",
-            "rules" => "required||min_length[2]|max_length[2]"
+        "codIBGE"  => [
+            "label" => 'Código do IBGE da UF',
+            "rules" => 'required|min_length[2]|max_length[2]'
         ]
     ];
-
-    /**
-     * lista
-     *
-     * @return array
-     */
-    public function lista()
-    {
-        return $this
-            ->orderBy("descricao")
-            ->findAll();
-    }
 }

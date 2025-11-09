@@ -27,7 +27,9 @@ abstract class BaseController extends Controller
      * @var CLIRequest|IncomingRequest
      */
     protected $request;
-
+    public $model;
+    public $dados;
+    
     /**
      * An array of helpers to be loaded automatically upon
      * class instantiation. These helpers will be available
@@ -35,7 +37,7 @@ abstract class BaseController extends Controller
      *
      * @var list<string>
      */
-    protected $helpers = [];
+    protected $helpers = ["url", "form", "Formulario", "Funcoes", "Tabela", "utilits"];
 
     /**
      * Be sure to declare properties for any property fetch you initialized.
@@ -50,6 +52,10 @@ abstract class BaseController extends Controller
     {
         // Do Not Edit This Line
         parent::initController($request, $response, $logger);
+
+        $this->dados['data']    = [];
+        $this->dados['errors']  = [];
+        $this->dados['action']  = "";
 
         // Preload any models, libraries, etc, here.
 
