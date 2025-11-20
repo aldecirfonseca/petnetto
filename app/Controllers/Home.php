@@ -41,11 +41,11 @@ class Home extends BaseController
 
     public function contato()
     {        
-        return view("blog");
+        return view("admin/listauf");
     }
 
     public function login()
     {
-        return view("login");
+        return view("arearestrita");
     }
 }
