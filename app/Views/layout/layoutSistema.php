@@ -69,7 +69,7 @@
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item <?= (getPagina() == 'home' ? 'active' : '') ?>"><a href="<?= base_url() ?>" class="nav-link">Home</a></li>
 						<li class="nav-item <?= (getPagina() == 'sobrenos' ? 'active' : '') ?>"><a href="<?= base_url() ?>sobrenos" class="nav-link">Sobre nós</a></li>
-						<li class="nav-item <?= (getPagina() == 'veterinarios' ? 'active' : '') ?>"><a href="index.php?pagina=veterinarios" class="nav-link">Veterinários</a></li>
+						<li class="nav-item <?= (getPagina() == 'veterinarios' ? 'active' : '') ?>"><a href="index.php?veterinarios" class="nav-link">Veterinários</a></li>
 						<li class="nav-item <?= (getPagina() == 'servicos' ? 'active' : '') ?>"><a href="index.php?pagina=servicos" class="nav-link">Serviços</a></li>
 						<li class="nav-item <?= (getPagina() == 'precos' ? 'active' : '') ?>"><a href="index.php?pagina=precos" class="nav-link">Preços</a></li>
 						<li class="nav-item <?= (getPagina() == 'blog' ? 'active' : '') ?>"><a href="index.php?pagina=blog" class="nav-link">Blog</a></li>
