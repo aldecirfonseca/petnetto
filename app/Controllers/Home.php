@@ -41,7 +41,7 @@ class Home extends BaseController
 
     public function contato()
     {        
-        return view("blog");
+        return view("contato");
     }
 
     public function login()

@@ -69,12 +69,17 @@
 					<ul class="navbar-nav ml-auto">
 						<li class="nav-item <?= (getPagina() == 'home' ? 'active' : '') ?>"><a href="<?= base_url() ?>" class="nav-link">Home</a></li>
 						<li class="nav-item <?= (getPagina() == 'sobrenos' ? 'active' : '') ?>"><a href="<?= base_url() ?>sobrenos" class="nav-link">Sobre nós</a></li>
-						<li class="nav-item <?= (getPagina() == 'veterinarios' ? 'active' : '') ?>"><a href="index.php?pagina=veterinarios" class="nav-link">Veterinários</a></li>
-						<li class="nav-item <?= (getPagina() == 'servicos' ? 'active' : '') ?>"><a href="index.php?pagina=servicos" class="nav-link">Serviços</a></li>
-						<li class="nav-item <?= (getPagina() == 'precos' ? 'active' : '') ?>"><a href="index.php?pagina=precos" class="nav-link">Preços</a></li>
-						<li class="nav-item <?= (getPagina() == 'blog' ? 'active' : '') ?>"><a href="index.php?pagina=blog" class="nav-link">Blog</a></li>
-						<li class="nav-item <?= (getPagina() == 'contato' ? 'active' : '') ?>"><a href="index.php?pagina=contato" class="nav-link">Contato</a></li>
-						<li class="nav-item <?= (getPagina() == 'login' ? 'active' : '') ?>"><a href="<?= base_url() ?>login" class="nav-link">Area Restrita</a></li>
+						<li class="nav-item <?= (getPagina() == 'veterinarios' ? 'active' : '') ?>"><a href="<?= base_url() ?>veterinarios" class="nav-link">Veterinários</a></li>
+						<li class="nav-item <?= (getPagina() == 'servicos' ? 'active' : '') ?>"><a href="<?= base_url() ?>servicos" class="nav-link">Serviços</a></li>
+						<li class="nav-item <?= (getPagina() == 'precos' ? 'active' : '') ?>"><a href="<?= base_url() ?>precos" class="nav-link">Preços</a></li>
+						<li class="nav-item <?= (getPagina() == 'blog' ? 'active' : '') ?>"><a href="<?= base_url() ?>blog" class="nav-link">Blog</a></li>
+						<li class="nav-item <?= (getPagina() == 'contato' ? 'active' : '') ?>"><a href="<?= base_url() ?>contato" class="nav-link">Contato</a></li>
+						<?php if (session()->get('usuario_logado')): ?>
+							<li class="nav-item"><a href="<?= base_url() ?>admin/contatos" class="nav-link">Admin</a></li>
+							<li class="nav-item"><a href="<?= base_url() ?>logout" class="nav-link">Sair</a></li>
+						<?php else: ?>
+							<li class="nav-item <?= (getPagina() == 'admin' ? 'active' : '') ?>"><a href="<?= base_url() ?>admin/contatos" class="nav-link">Área Restrita</a></li>
+						<?php endif; ?>
 					</ul>
 				</div>
 			</div>
@@ -115,6 +120,38 @@
 			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 		<script src="<?= base_url("assets/js/google-map.js") ?>"></script>
 		<script src="<?= base_url("assets/js/main.js") ?>"></script>
+
+		<script>
+			function confirmaDelete(url, id) {
+				if (confirm('Tem certeza que deseja excluir este registro?')) {
+					// Cria um formulário temporário para enviar via POST
+					var form = document.createElement('form');
+					form.method = 'POST';
+					form.action = url;
+					
+					// Adiciona o ID como campo oculto
+					var inputId = document.createElement('input');
+					inputId.type = 'hidden';
+					inputId.name = 'id';
+					inputId.value = id;
+					form.appendChild(inputId);
+					
+					// Adiciona o token CSRF se existir
+					var csrfToken = document.querySelector('meta[name="<?= csrf_token() ?>"]');
+					if (csrfToken) {
+						var inputCsrf = document.createElement('input');
+						inputCsrf.type = 'hidden';
+						inputCsrf.name = '<?= csrf_token() ?>';
+						inputCsrf.value = csrfToken.getAttribute('content');
+						form.appendChild(inputCsrf);
+					}
+					
+					// Adiciona o formulário ao body e submete
+					document.body.appendChild(form);
+					form.submit();
+				}
+			}
+		</script>
 
 	</body>
 </html>
