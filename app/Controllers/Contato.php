@@ -21,7 +21,7 @@ class Contato extends BaseController
     public function __construct()
     {
         $this->contatoModel = new ContatoModel();
-        helper(['form', 'url']);
+        helper(['form', 'url', 'text']);
     }
 
     /**
@@ -95,24 +95,19 @@ class Contato extends BaseController
      * enviar uma notificação ao administrador sobre a nova mensagem.
      * 
      * @param array $dados Dados da mensagem
-     * @return void
+     * @return bool
      */
     private function enviarEmail($dados)
     {
         $email = \Config\Services::email();
 
-        // Configurações do e-mail
-        $config['protocol']  = 'mail';
-        $config['mailType']  = 'html';
-        $config['charset']   = 'utf-8';
-        $config['newline']   = "\r\n";
-        $config['wordWrap']  = true;
-
-        $email->initialize($config);
-
-        // Define remetente e destinatário
-        $email->setFrom($dados['email'], $dados['nome']);
-        $email->setTo('contato@petnetto.com.br'); // E-mail da clínica
+        // Define remetente e destinatário usando variáveis do .env
+        $email->setFrom(
+            getenv('email.fromEmail') ?: 'petnetto@gmail.com',
+            getenv('email.fromName') ?: 'Pet Netto - Clínica Veterinária'
+        );
+        $email->setReplyTo($dados['email'], $dados['nome']); // Para responder diretamente ao cliente
+        $email->setTo(getenv('email.fromEmail') ?: 'petnetto@gmail.com');
         $email->setSubject('Contato pelo site - ' . $dados['assunto']);
 
         // Monta o corpo do e-mail em HTML
@@ -120,28 +115,86 @@ class Contato extends BaseController
             <html>
             <head>
                 <style>
-                    body { font-family: Arial, sans-serif; }
-                    .container { padding: 20px; }
-                    .header { background-color: #4CAF50; color: white; padding: 10px; }
-                    .content { padding: 20px; background-color: #f9f9f9; }
-                    .footer { padding: 10px; font-size: 12px; color: #666; }
+                    body { 
+                        font-family: Arial, sans-serif; 
+                        background-color: #f4f4f4;
+                        margin: 0;
+                        padding: 0;
+                    }
+                    .container { 
+                        max-width: 600px;
+                        margin: 20px auto;
+                        background-color: #ffffff;
+                        border-radius: 8px;
+                        overflow: hidden;
+                        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                    }
+                    .header { 
+                        background-color: #4CAF50; 
+                        color: white; 
+                        padding: 20px;
+                        text-align: center;
+                    }
+                    .header h2 {
+                        margin: 0;
+                        font-size: 24px;
+                    }
+                    .content { 
+                        padding: 30px;
+                        line-height: 1.6;
+                    }
+                    .field {
+                        margin-bottom: 15px;
+                    }
+                    .field strong {
+                        color: #333;
+                        display: inline-block;
+                        width: 100px;
+                    }
+                    .message-box {
+                        background-color: #f9f9f9;
+                        border-left: 4px solid #4CAF50;
+                        padding: 15px;
+                        margin-top: 10px;
+                    }
+                    .footer { 
+                        padding: 15px;
+                        background-color: #f4f4f4;
+                        font-size: 12px;
+                        color: #666;
+                        text-align: center;
+                    }
                 </style>
             </head>
             <body>
                 <div class='container'>
                     <div class='header'>
-                        <h2>Nova mensagem de contato - Pet Netto</h2>
+                        <h2>🐾 Nova mensagem de contato</h2>
                     </div>
                     <div class='content'>
-                        <p><strong>Nome:</strong> {$dados['nome']}</p>
-                        <p><strong>E-mail:</strong> {$dados['email']}</p>
-                        <p><strong>Assunto:</strong> {$dados['assunto']}</p>
-                        <p><strong>Mensagem:</strong></p>
-                        <p>" . nl2br(esc($dados['mensagem'])) . "</p>
+                        <p style='color: #666; margin-bottom: 20px;'>Você recebeu uma nova mensagem através do formulário de contato do site:</p>
+                        
+                        <div class='field'>
+                            <strong>Nome:</strong> {$dados['nome']}
+                        </div>
+                        <div class='field'>
+                            <strong>E-mail:</strong> <a href='mailto:{$dados['email']}'>{$dados['email']}</a>
+                        </div>
+                        <div class='field'>
+                            <strong>Assunto:</strong> {$dados['assunto']}
+                        </div>
+                        
+                        <div class='field'>
+                            <strong>Mensagem:</strong>
+                            <div class='message-box'>
+                                " . nl2br(esc($dados['mensagem'])) . "
+                            </div>
+                        </div>
                     </div>
                     <div class='footer'>
-                        <p>IP: {$dados['ip']}</p>
-                        <p>Data: " . date('d/m/Y H:i:s') . "</p>
+                        <p><strong>Informações técnicas:</strong></p>
+                        <p>IP: {$dados['ip']} | Data: " . date('d/m/Y H:i:s') . "</p>
+                        <p style='margin-top: 10px;'>Este e-mail foi enviado automaticamente pelo sistema Pet Netto.</p>
                     </div>
                 </div>
             </body>
@@ -152,10 +205,17 @@ class Contato extends BaseController
 
         // Tenta enviar o e-mail
         try {
-            $email->send();
+            if ($email->send()) {
+                log_message('info', 'E-mail de contato enviado com sucesso para: ' . $dados['email']);
+                return true;
+            } else {
+                log_message('error', 'Falha ao enviar e-mail de contato. Debugger: ' . $email->printDebugger(['headers']));
+                return false;
+            }
         } catch (\Exception $e) {
             // Registra o erro no log caso falhe
             log_message('error', 'Erro ao enviar e-mail de contato: ' . $e->getMessage());
+            return false;
         }
     }
 }
