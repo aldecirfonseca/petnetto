@@ -34,7 +34,7 @@ $this->section('conteudo');
     </div>
 
     <div class="form-group col-12 col-md-6">
-        <label class="form-label">Imagem do Serviço</label>
+        <label class="form-label">Icone</label>
 
         <!-- Upload de nova imagem -->
         <input type="file" name="img" id="img" class="form-control mb-2" accept="image/*">
