@@ -23,3 +23,11 @@ $routes->group('Uf', static function ($routes) {
     $routes->post("store", "Uf::store");
     $routes->post("delete", "Uf::delete");
 });
+
+$routes->group('Servicos', static function ($routes) {
+    $routes->get('/', 'Servicos::index'); 
+    $routes->get('index', 'Servicos::index');
+    $routes->get('form/(:alpha)/(:num)', 'Servicos::form/$1/$2');
+    $routes->post("store", "Servicos::store");
+    $routes->post("delete", "Servicos::delete");
+});
