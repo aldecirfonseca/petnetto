@@ -1,4 +1,8 @@
-    <section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_2.jpg');"
+<?= $this->extend("layout\layoutHome") ?>
+
+<?= $this->section("conteudo") ?>
+
+    <section class="hero-wrap hero-wrap-2" style="background-image: url(<?= base_url('assets/images/bg_2.jpg') ?>);"
         data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container">
@@ -19,7 +23,7 @@
                 <div class="col-md-6 col-lg-3 ftco-animate">
                     <div class="staff">
                         <div class="img-wrap d-flex align-items-stretch">
-                            <div class="img align-self-stretch" style="background-image: url(images/staff-1.jpg);">
+                            <div class="img align-self-stretch" style="background-image: url(<?= base_url('assets/images/staff-1.jpg') ?>);">
                             </div>
                         </div>
                         <div class="text pt-3 px-3 pb-4 text-center">
@@ -48,7 +52,7 @@
                 <div class="col-md-6 col-lg-3 ftco-animate">
                     <div class="staff">
                         <div class="img-wrap d-flex align-items-stretch">
-                            <div class="img align-self-stretch" style="background-image: url(images/staff-2.jpg);">
+                            <div class="img align-self-stretch" style="background-image: url(<?= base_url('assets/images/staff-2.jpg') ?>);">
                             </div>
                         </div>
                         <div class="text pt-3 px-3 pb-4 text-center">
@@ -77,7 +81,7 @@
                 <div class="col-md-6 col-lg-3 ftco-animate">
                     <div class="staff">
                         <div class="img-wrap d-flex align-items-stretch">
-                            <div class="img align-self-stretch" style="background-image: url(images/staff-5.jpg);">
+                            <div class="img align-self-stretch" style="background-image: url(<?= base_url('assets/images/staff-5.jpg') ?>);">
                             </div>
                         </div>
                         <div class="text pt-3 px-3 pb-4 text-center">
@@ -106,7 +110,7 @@
                 <div class="col-md-6 col-lg-3 ftco-animate">
                     <div class="staff">
                         <div class="img-wrap d-flex align-items-stretch">
-                            <div class="img align-self-stretch" style="background-image: url(images/staff-6.jpg);">
+                            <div class="img align-self-stretch" style="background-image: url(<?= base_url('assets/images/staff-6.jpg') ?>);">
                             </div>
                         </div>
                         <div class="text pt-3 px-3 pb-4 text-center">
@@ -135,3 +139,5 @@
             </div>
         </div>
     </section>
+
+<?= $this->endSection() ?>
