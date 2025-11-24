@@ -5,9 +5,9 @@ $this->section('conteudo');
 
 ?>
 
-<?= exibeTitulo("Servicos", ['acao' => $action]) ?>
+<?= exibeTitulo("Servico", ['acao' => $action]) ?>
 
-<?= form_open_multipart("Servicos/" . ($action == "delete" ? 'delete' : 'store')) ?>
+<?= form_open_multipart("Servico/" . ($action == "delete" ? 'delete' : 'store')) ?>
 
 <div class="row">
     <div class="form-group col-12 col-md-6">
@@ -72,7 +72,7 @@ $this->section('conteudo');
 
 <div class="row">
     <div class="form-group col-12">
-        <a href="<?= base_url() ?>/Servicos" class="btn btn-secondary">Voltar</a>
+        <a href="<?= base_url() ?>/Servico" class="btn btn-secondary">Voltar</a>
         <button type="submit" class="btn btn-primary ml-3">Gravar</button>
     </div>
 </div>

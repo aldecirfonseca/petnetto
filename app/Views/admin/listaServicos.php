@@ -5,7 +5,7 @@
 
     ?>
 
-    <?= exibeTitulo("Servicos", ['acao' => 'new']) ?>
+    <?= exibeTitulo("Servico", ['acao' => 'new']) ?>
     
     <div class="table-responsive table_custom">
         <table class="table table-hover table-bordered table-striped table-sm" id="tbListaServicos">
@@ -27,9 +27,9 @@
                             <td><?= $value['categoria'] ?? 'Nenhum dado inserido' ?></td>
                             <td><?= statusRegistro($value['statusRegistro']) ?? 'Status não definido' ?></td>
                             <td>
-                                <a href="<?= base_url() ?>Servicos/form/view/<?= $value['id'] ?>" class="btn btn-secondary btn-sm btn-icons-crud" title="Visualizar"><i class="fa fa-eye" aria-hidden="true"></i></a>    
-                                <a href="<?= base_url() ?>Servicos/form/update/<?= $value['id'] ?>" class="btn btn-secondary btn-sm btn-icons-crud" title="Alterar"><i class="fa fa-file" aria-hidden="true"></i></a>    
-                                <a href="<?= base_url() ?>Servicos/form/delete/<?= $value['id'] ?>" class="btn btn-secondary btn-sm btn-icons-crud" title="Excluir"><i class="fa fa-trash" aria-hidden="true"></i></a>                               
+                                <a href="<?= base_url() ?>Servico/form/view/<?= $value['id'] ?>" class="btn btn-secondary btn-sm btn-icons-crud" title="Visualizar"><i class="fa fa-eye" aria-hidden="true"></i></a>    
+                                <a href="<?= base_url() ?>Servico/form/update/<?= $value['id'] ?>" class="btn btn-secondary btn-sm btn-icons-crud" title="Alterar"><i class="fa fa-file" aria-hidden="true"></i></a>    
+                                <a href="<?= base_url() ?>Servico/form/delete/<?= $value['id'] ?>" class="btn btn-secondary btn-sm btn-icons-crud" title="Excluir"><i class="fa fa-trash" aria-hidden="true"></i></a>                               
                             </td>
                         </tr>
                     <?php endforeach; ?>

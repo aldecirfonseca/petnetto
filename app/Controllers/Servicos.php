@@ -74,7 +74,7 @@ class Servicos extends BaseController
         }
 
         if ($this->model->save($data)) {
-            return redirect()->to('Servicos')->with('msgSucess', 'Serviço salvo com sucesso!');
+            return redirect()->to('Servico')->with('msgSucess', 'Serviço salvo com sucesso!');
         } else {
             return view('admin/formServicos', [
                 'action' => $post['action'],
@@ -102,9 +102,9 @@ class Servicos extends BaseController
 
         // 3. DELETA o registro do banco
         if ($this->model->delete($id)) {
-            return redirect()->to('Servicos')->with('msgSucess', 'Serviço excluído com sucesso.');
+            return redirect()->to('Servico')->with('msgSucess', 'Serviço excluído com sucesso.');
         } else {
-            return redirect()->to('Servicos')->with('msgError', 'Erro ao tentar excluir serviço.');
+            return redirect()->to('Servico')->with('msgError', 'Erro ao tentar excluir serviço.');
         }
     }
 }
