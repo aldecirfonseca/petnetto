@@ -14,10 +14,10 @@ class Home extends BaseController
         return view("home");
     }
 
-    public function sobrenos()
-    {
-        return view("sobrenos");
-    }
+    // public function sobrenos()
+    // {
+    //     return view("sobrenos");
+    // }
 
     public function veterinarios()
     {
