@@ -19,10 +19,10 @@ class Home extends BaseController
         return view("home", ['servicosAtivos' => $data]);
     }
 
-    public function sobrenos()
-    {
-        return view("sobrenos");
-    }
+    // public function sobrenos()
+    // {
+    //     return view("sobrenos");
+    // }
 
     public function veterinarios()
     {

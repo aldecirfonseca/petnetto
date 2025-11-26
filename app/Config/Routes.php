@@ -6,7 +6,7 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 $routes->get('/', 'Home::index');
-$routes->get("sobrenos", "Home::sobrenos");
+$routes->get("sobrenos", "SobreNos::exibeSobreNos");
 $routes->get("veterinarios", "Home::veterinarios");
 $routes->get("servicos", "Home::servicos");
 $routes->get("precos", "Home::precos");
@@ -70,11 +70,19 @@ $routes->group('UsuarioAdm', static function ($routes) {
     $routes->post('delete', 'UsuarioAdm::delete');
 });
 
-$routes->get('dev/loginAdmin', 'DevTools::loginAdmin');
 $routes->group('Servico', static function ($routes) {
     $routes->get('/', 'Servicos::index'); 
     $routes->get('index', 'Servicos::index');
     $routes->get('form/(:alpha)/(:num)', 'Servicos::form/$1/$2');
     $routes->post("store", "Servicos::store");
     $routes->post("delete", "Servicos::delete");
+ });
+ 
+$routes->group('SobreNos', static function ($routes) {
+    $routes->get('/', 'SobreNos::listaSobreNos'); 
+    $routes->get('listaSobreNos', 'SobreNos::listaSobreNos');
+    $routes->get('form/(:alpha)/(:num)', 'SobreNos::form/$1/$2');
+    $routes->get('form/(:alpha)', 'SobreNos::form/$1');
+    $routes->post("store", "SobreNos::store");
+    $routes->post("delete", "SobreNos::delete");
 });

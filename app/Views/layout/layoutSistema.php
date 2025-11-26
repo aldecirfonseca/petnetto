@@ -77,7 +77,8 @@
 						<?php if (session()->get('usuario_logado')): ?>
 							<li class="nav-item"><a href="<?= base_url() ?>admin/contatos" class="nav-link">Admin</a></li>
 							<li class="nav-item"><a href="<?= base_url() ?>logout" class="nav-link">Sair</a></li>
-						<?php else: ?>
+							<li class="nav-item <?= (getPagina() == 'listasobrenos' ? 'active' : '') ?>"><a href="<?= base_url() ?>SobreNos/listaSobreNos" class="nav-link">Lista Sobre nós</a></li>
+            <?php else: ?>
 							<li class="nav-item <?= (getPagina() == 'admin' ? 'active' : '') ?>"><a href="<?= base_url() ?>admin/contatos" class="nav-link">Área Restrita</a></li>
 						<?php endif; ?>
 					</ul>

@@ -2,46 +2,42 @@
 
 <?= $this->section("conteudo") ?>
 
-    <section class="hero-wrap hero-wrap-2" style="background-image: url('<?= base_url("assets/images/bg_2.jpg") ?>');"
+    <section class="hero-wrap hero-wrap-2" style="background-image: url('<?= esc($data['image_slogan'] ?? base_url("assets/images/bg_2.jpg")) ?>');"
         data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text align-items-end">
                 <div class="col-md-9 ftco-animate pb-5">
-                    <p class="breadcrumbs mb-2"><span class="mr-2"><a href="index.php">Home <i
-                                    class="ion-ios-arrow-forward"></i></a></span> <span>Sobre nós <i
+                    <p class="breadcrumbs mb-2"><span class="mr-2"><a href="<?= base_url() ?>">Home <i
+                                    class="ion-ios-arrow-forward"></i></a></span> <span><?= esc($data['title'] ?? 'Sobre nós') ?> <i
                                 class="ion-ios-arrow-forward"></i></span></p>
-                    <h1 class="mb-0 bread">Sobre nós</h1>
+                    <h1 class="mb-0 bread"><?= esc($data['title'] ?? 'Sobre nós') ?></h1>
                 </div>
             </div>
         </div>
     </section>
 
     <section class="ftco-section ftco-no-pt ftco-no-pb">
-        <div class="container">
+        <div class="container"> 
             <div class="row d-flex no-gutters">
                 <div class="col-md-5 d-flex">
                     <div class="img img-video d-flex align-self-stretch align-items-center justify-content-center justify-content-md-center mb-4 mb-sm-0"
-                        style="background-image:url('<?= base_url("assets/images/about-1.jpg") ?>');">
+                        style="background-image:url('<?= esc($data['image_page'] ?? base_url("assets/images/about-1.jpg")) ?>');">
                     </div>
                 </div>
                 <div class="col-md-7 pl-md-5 py-md-5">
                     <div class="heading-section pt-md-5">
-                        <h2 class="mb-4">Sobre nós</h2>
+                        <h2 class="mb-4"><?= esc($data['title'] ?? 'Sobre nós') ?></h2>
+                        <?php if (!empty($data['short_description'])): ?>
+                            <h4><?= esc($data['short_description']) ?></h4>
+                        <?php endif; ?>
                     </div>
                     <div class="row">
                         <div class="col-md-12 w-100 d-flex">
                             <div class="text pl-3">
-                                <h4>Clínica Veterinária Pet Netto – Cuidando com Amor no Coração de Muriaé</h4>
-                                <p>
-                                    Localizada no interior acolhedor de Muriaé, Minas Gerais, a Pet Netto é mais do que uma clínica veterinária — é um espaço de cuidado, confiança e carinho para os animais de estimação da região. Com uma equipe dedicada e apaixonada por pets, oferecemos atendimento clínico completo, serviços de emergência, vacinação, exames laboratoriais e acompanhamento personalizado.
-                                </p>
-                                <p>
-                                    Nossa missão é garantir saúde, bem-estar e qualidade de vida para cada animal que passa por nossas portas. Aqui, cada latido, miado ou olhar recebe atenção especial, porque entendemos que seu pet é parte da família.
-                                </p>
-                                <p>
-                                    Venha nos conhecer e descubra por que a Pet Netto é referência em cuidado veterinário no interior de Minas!
-                                </p>
+                                <?php if (!empty($data['long_description'])): ?>
+                                    <p><?= esc($data['long_description']) ?></p>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>
@@ -49,5 +45,24 @@
             </div>
         </div>
     </section>
+
+    <?php if (!empty($data['valores_empresa'])): ?>
+    <section class="ftco-section bg-light">
+        <div class="container">
+            <div class="row justify-content-center pb-5 mb-3">
+                <div class="col-md-7 heading-section text-center ftco-animate">
+                    <h2>Nossos Valores</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="text-center">
+                        <p style="white-space: pre-line;"><?= esc($data['valores_empresa']) ?></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <?php endif; ?>
 
 <?= $this->endSection() ?>

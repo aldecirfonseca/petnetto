@@ -34,7 +34,7 @@ class Filters extends BaseFilters
         'forcehttps'    => ForceHTTPS::class,
         'pagecache'     => PageCache::class,
         'performance'   => PerformanceMetrics::class,
-        'auth'          => \App\Filters\AuthFilter::class,
+        'auth'          => \App\Filters\Auth::class,
     ];
 
     /**
@@ -79,7 +79,6 @@ class Filters extends BaseFilters
                     'home',
                     'login',
                     'login/*',
-                    'sobrenos',
                     'veterinarios',
                     'usuario',
                     'usuario/criarNovaConta',
@@ -90,6 +89,8 @@ class Filters extends BaseFilters
                     'usuario/salvarNovaSenha',
                     'dev/loginAdmin'
                     'servicos'
+                    'SobreNos',
+                    'SobreNos/*'
                 ]
             ]
             // 'honeypot',
