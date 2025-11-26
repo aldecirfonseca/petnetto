@@ -22,7 +22,7 @@
                         <p>
                             Crie uma conta para poder curtir, comentar, marcar como lido nossos conteúdos criados para você.
                         </p>
-                        <a class="button button-account" href="<?= base_url() ?>criarNovaConta">Crie sua conta aqui</a>
+                        <a class="button button-account" href="<?= base_url() ?>Usuario/criarNovaConta">Crie sua conta aqui</a>
                     </div>
                 </div>
             </div>
@@ -49,7 +49,7 @@
                         </div>
                         <div class="col-md-12 form-group">
                             <button type="submit" value="submit" class="btn btn-secondary mr-3">Entrar</button>
-                            <a href="#">Esqueceu a senha?</a>
+                            <a href="<?= base_url() ?>Usuario/esqueciSenha">Esqueceu a senha?</a>
                         </div>
                     </form>
                 </div>

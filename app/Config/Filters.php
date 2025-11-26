@@ -81,6 +81,14 @@ class Filters extends BaseFilters
                     'login/*',
                     'sobrenos',
                     'veterinarios',
+                    'usuario',
+                    'usuario/criarNovaConta',
+                    'usuario/store',
+                    'usuario/esqueciSenha',
+                    'usuario/enviarLink',
+                    'usuario/redefinirSenha/*',
+                    'usuario/salvarNovaSenha',
+                    'dev/loginAdmin'
                     'servicos'
                 ]
             ]

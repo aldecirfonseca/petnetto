@@ -55,4 +55,9 @@ class Home extends BaseController
     {
         return view("login");
     }
+
+    public function criarNovaConta()
+    {
+        return view("criarNovaConta");
+    }
 }
