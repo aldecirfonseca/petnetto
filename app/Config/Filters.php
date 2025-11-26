@@ -80,7 +80,15 @@ class Filters extends BaseFilters
                     'login',
                     'login/*',
                     'sobrenos',
-                    'veterinarios'
+                    'veterinarios',
+                    'usuario',
+                    'usuario/criarNovaConta',
+                    'usuario/store',
+                    'usuario/esqueciSenha',
+                    'usuario/enviarLink',
+                    'usuario/redefinirSenha/*',
+                    'usuario/salvarNovaSenha',
+                    'dev/loginAdmin'
                 ]
             ]
             // 'honeypot',

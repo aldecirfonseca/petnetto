@@ -74,7 +74,7 @@
 						<li class="nav-item <?= (getPagina() == 'precos' ? 'active' : '') ?>"><a href="index.php?pagina=precos" class="nav-link">Preços</a></li>
 						<li class="nav-item <?= (getPagina() == 'blog' ? 'active' : '') ?>"><a href="index.php?pagina=blog" class="nav-link">Blog</a></li>
 						<li class="nav-item <?= (getPagina() == 'contato' ? 'active' : '') ?>"><a href="index.php?pagina=contato" class="nav-link">Contato</a></li>
-						<li class="nav-item <?= (getPagina() == 'login' ? 'active' : '') ?>"><a href="<?= base_url() ?>login" class="nav-link">Area Restrita</a></li>
+						<li class="nav-item <?= (getPagina() == 'login' ? 'active' : '') ?>"><a href="<?= base_url() ?>Usuario/perfil" class="nav-link">Area Restrita</a></li>
 					</ul>
 				</div>
 			</div>

@@ -23,3 +23,25 @@ $routes->group('Uf', static function ($routes) {
     $routes->post("store", "Uf::store");
     $routes->post("delete", "Uf::delete");
 });
+
+$routes->group('Usuario', static function ($routes) {
+    $routes->get('criarNovaConta', 'Usuario::criar'); 
+    $routes->post('store', 'Usuario::store');
+    $routes->get('esqueciSenha', 'Usuario::esqueciSenha');
+    $routes->post('enviarLink', 'Usuario::enviarLink');
+    $routes->get('redefinirSenha/(:segment)', 'Usuario::redefinirSenha/$1');
+    $routes->post('salvarNovaSenha', 'Usuario::salvarNovaSenha');
+    $routes->get('trocarSenha', 'Usuario::trocarSenha');
+    $routes->post('salvarSenha', 'Usuario::salvarSenha');
+    $routes->get('perfil', 'Usuario::perfil');
+    $routes->post('softDelete', 'Usuario::softDelete');
+});
+
+$routes->group('UsuarioAdm', static function ($routes) {
+    $routes->get('/', 'UsuarioAdm::index');
+    $routes->get('form/(:alpha)/(:num)', 'UsuarioAdm::form/$1/$2');
+    $routes->post('store', 'UsuarioAdm::store');
+    $routes->post('delete', 'UsuarioAdm::delete');
+});
+
+$routes->get('dev/loginAdmin', 'DevTools::loginAdmin');
