@@ -45,3 +45,10 @@ $routes->group('UsuarioAdm', static function ($routes) {
 });
 
 $routes->get('dev/loginAdmin', 'DevTools::loginAdmin');
+$routes->group('Servico', static function ($routes) {
+    $routes->get('/', 'Servicos::index'); 
+    $routes->get('index', 'Servicos::index');
+    $routes->get('form/(:alpha)/(:num)', 'Servicos::form/$1/$2');
+    $routes->post("store", "Servicos::store");
+    $routes->post("delete", "Servicos::delete");
+});

@@ -89,6 +89,7 @@ class Filters extends BaseFilters
                     'usuario/redefinirSenha/*',
                     'usuario/salvarNovaSenha',
                     'dev/loginAdmin'
+                    'servicos'
                 ]
             ]
             // 'honeypot',

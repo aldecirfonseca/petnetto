@@ -2,6 +2,17 @@
 
 <?= $this->section("conteudo") ?>
 
+<style>
+    .service-icon-img {
+    width: 90px !important;
+    height: 90px !important;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #fff;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+</style>
+
     <div class="hero-wrap js-fullheight"
         style="background-image: url('<?= base_url("assets/images/bg_1.jpg") ?>');"
         data-stellar-background-ratio="0.5">
@@ -19,63 +30,45 @@
         </div>
     </div>
 
-    <section class="ftco-section bg-light ftco-no-pt ftco-intro">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 d-flex align-self-stretch px-4 ftco-animate">
-                    <div class="d-block services text-center">
-                        <div class="icon d-flex align-items-center justify-content-center">
-                            <span class="flaticon-blind"></span>
-                        </div>
-                        <div class="media-body p-4">
-                            <h3 class="heading">Passeios com Cães</h3>
-                            <h6>Diversão e exercício para seu melhor amigo!</h6>
-                            <p>
-                                Na Pet Netto, oferecemos passeios seguros e supervisionados para cães de todas as idades. Caminhadas regulares ajudam na saúde física e mental dos pets, além de proporcionar momentos de alegria e socialização.
-                            </p>
-                            <a href="#" class="btn-custom d-flex align-items-center justify-content-center">
-                                <span class="fa fa-chevron-right"></span><i class="sr-only">Saiba mais...</i>
-                            </a>
-                        </div>
+<section class="ftco-section bg-light ftco-no-pt ftco-intro">
+    <div class="container">
+        <div class="row">
+            <?php foreach ($servicosAtivos as $servico): ?>
+            <div class="col-md-4 d-flex align-self-stretch px-4 ftco-animate">
+                <div class="d-block services text-center">
+                    <div class="icon d-flex align-items-center justify-content-center">
+                        <?php if ($servico['img']): ?>
+                            <img src="<?= base_url($servico['img']) ?>" 
+                                 alt="<?= esc($servico['nome']) ?>" 
+                                 class="service-icon-img" 
+                                 style="width:60px;height:60px;border-radius:50%;object-fit:cover;">
+                        <?php else: ?>
+                            <span class="flaticon-pawprint"></span>
+                        <?php endif; ?>
                     </div>
-                </div>
-                <div class="col-md-4 d-flex align-self-stretch px-4 ftco-animate">
-                    <div class="d-block services text-center">
-                        <div class="icon d-flex align-items-center justify-content-center">
-                            <span class="flaticon-dog-eating"></span>
-                        </div>
-                        <div class="media-body p-4">
-                            <h3 class="heading">Creche para Pets</h3>
-                            <h6>Cuidado e companhia enquanto você trabalha.</h6>
-                            <p>
-                                Nossa creche é o lugar ideal para deixar seu pet durante o dia. Com espaço seguro, atividades recreativas e atenção constante, garantimos conforto, diversão e bem-estar para seu animal de estimação.
-                            </p>
-                            <a href="#" class="btn-custom d-flex align-items-center justify-content-center">
-                                <span class="fa fa-chevron-right"></span><i class="sr-only">Saiba mais...</i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 d-flex align-self-stretch px-4 ftco-animate">
-                    <div class="d-block services text-center">
-                        <div class="icon d-flex align-items-center justify-content-center">
-                            <span class="flaticon-grooming"></span>
-                        </div>
-                        <div class="media-body p-4">
-                            <h3 class="heading">Banho e Tosa</h3>
-                            <h6>Seu pet limpo, cheiroso e estiloso!</h6>
-                            <p>
-                                Oferecemos serviços completos de banho e tosa com profissionais experientes e produtos de alta qualidade. Aqui, cada pet recebe tratamento especial, com carinho e cuidado em cada detalhe.
-                            </p>
-                            <a href="#" class="btn-custom d-flex align-items-center justify-content-center">
-                                <span class="fa fa-chevron-right"></span><i class="sr-only">Saiba mais...</i>
-                            </a>
-                        </div>
+                    <div class="media-body p-4">
+                        <h3 class="heading"><?= esc($servico['nome']) ?></h3>
+                        <p><?= esc(substr($servico['descricao'], 0, 254)) ?></p>
+                        <a href="#" 
+                           class="btn-custom d-flex align-items-center justify-content-center">
+                            <span class="fa fa-chevron-right"></span>
+                            <i class="sr-only">Saiba mais...</i>
+                        </a>
                     </div>
                 </div>
             </div>
+            <?php endforeach; ?>
+            
+            <?php if (empty($servicosAtivos)): ?>
+            <div class="col-12 text-center py-5">
+                <h4>Nenhum serviço ativo disponível no momento.</h4>
+                <p>Volte em breve para conhecer nossos serviços!</p>
+            </div>
+            <?php endif; ?>
         </div>
-    </section>
+    </div>
+</section>
+
 
     <section class="ftco-section testimony-section"
         style="background-image: url('<?= base_url("assets/images/bg_2.jpg") ?>);">
