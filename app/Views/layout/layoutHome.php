@@ -58,7 +58,7 @@
 		<nav
 			class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 			<div class="container">
-				<a class="navbar-brand" href="index.php">
+				<a class="navbar-brand" href="<?= base_url() ?>">
 					<span class="flaticon-pawprint-1 mr-2"></span>Pet Netto</a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse"
 					data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false"
@@ -71,10 +71,15 @@
 						<li class="nav-item <?= (getPagina() == 'sobrenos' ? 'active' : '') ?>"><a href="<?= base_url() ?>sobrenos" class="nav-link">Sobre nós</a></li>
 						<li class="nav-item <?= (getPagina() == 'veterinarios' ? 'active' : '') ?>"><a href="<?= base_url() ?>veterinarios" class="nav-link">Veterinários</a></li>
 						<li class="nav-item <?= (getPagina() == 'servicos' ? 'active' : '') ?>"><a href="<?= base_url() ?>servicos" class="nav-link">Serviços</a></li>
-						<li class="nav-item <?= (getPagina() == 'precos' ? 'active' : '') ?>"><a href="index.php?pagina=precos" class="nav-link">Preços</a></li>
-						<li class="nav-item <?= (getPagina() == 'blog' ? 'active' : '') ?>"><a href="index.php?pagina=blog" class="nav-link">Blog</a></li>
-						<li class="nav-item <?= (getPagina() == 'contato' ? 'active' : '') ?>"><a href="index.php?pagina=contato" class="nav-link">Contato</a></li>
-						<li class="nav-item <?= (getPagina() == 'login' ? 'active' : '') ?>"><a href="<?= base_url() ?>login" class="nav-link">Area Restrita</a></li>
+						<li class="nav-item <?= (getPagina() == 'precos' ? 'active' : '') ?>"><a href="<?= base_url() ?>precos" class="nav-link">Preços</a></li>
+						<li class="nav-item <?= (getPagina() == 'blog' ? 'active' : '') ?>"><a href="<?= base_url() ?>blog" class="nav-link">Blog</a></li>
+						<li class="nav-item <?= (getPagina() == 'contato' ? 'active' : '') ?>"><a href="<?= base_url() ?>contato" class="nav-link">Contato</a></li>
+						<?php if (session()->get('usuario_logado')): ?>
+							<li class="nav-item"><a href="<?= base_url() ?>admin/contatos" class="nav-link">Admin</a></li>
+							<li class="nav-item"><a href="<?= base_url() ?>logout" class="nav-link">Sair</a></li>
+						<?php else: ?>
+							<li class="nav-item <?= (getPagina() == 'admin' ? 'active' : '') ?>"><a href="<?= base_url() ?>admin/contatos" class="nav-link">Área Restrita</a></li>
+						<?php endif; ?>
 					</ul>
 				</div>
 			</div>

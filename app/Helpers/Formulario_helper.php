@@ -13,6 +13,10 @@
             $parametro['controller'] = $titulo;
         }
 
+        if (!isset($parametro['acao'])) {
+            $parametro['acao'] = 'lista';
+        }
+
         $subTitulo  = $titulo;
         $link       = '/';
         $icone      = 'list';
