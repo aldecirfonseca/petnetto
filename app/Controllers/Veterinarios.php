@@ -39,6 +39,18 @@ class Veterinarios extends BaseController
         return view("admin/formVeterinarios", $this->dados);
     }
 
+    public function listar() {
+        $veterinariosModel = new \App\Models\VeterinariosModel();
+        $Veterinarios = $veterinariosModel->getVeterinariosSimples();
+
+        $action = 'listar';
+
+        return view('admin/listaCategorias', [
+            'Veterinarios' => $Veterinarios,
+            'action'       => $action
+        ]);
+    }
+
     /**
      * store
      *
@@ -83,12 +95,12 @@ class Veterinarios extends BaseController
      */
     public function delete()
     {
-        if ($this->model->delete($this->request->getPost('id')) ) {
-			return redirect()->to('/Uf')->with('msgSucess', 'Dados Excluídos com Sucesso.');
+        $id = $this->request->getPost('id');
 
-		} else {
-			return redirect()->to('/Uf')->with('msgError', 'Erro ao Tentar Exluir Dados.');
-		}
+        if ($this->model->delete($id)) {
+            return redirect()->to('/Veterinarios')->with('msgSucess', 'Dados Excluídos com Sucesso.');
+        } else {
+            return redirect()->to('/Veterinarios')->with('msgError', 'Erro ao Tentar Excluir Dados.');
+        }
     }
-
 }

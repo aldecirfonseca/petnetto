@@ -25,13 +25,19 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-12">
-                <div class="col-lg-12 mb-3">
-                    <a href="<?= base_url('Veterinarios/form/new') ?>" class="btn btn-primary mr-md-4 py-3 px-4">Cadastrar Novo Veterinário</a>
+                <div class="col-lg-4 mb-3">
+                    <a href="<?= base_url('Veterinarios/form/new') ?>" class="btn btn-primary mr-md-4 py-3 px-4">
+                        Cadastrar Novo Veterinário
+                    </a>
+                </div>
+
+                <div class="col-lg-4 mb-3">
+                    <a href="<?= base_url('Veterinarios/listar') ?>" class="btn btn-primary mr-md-4 py-3 px-4">
+                        Ver Veterinários
+                    </a>
                 </div>
             </div>
         </div>
-    </div>
 </section>
 
 <?= $this->endSection() ?>

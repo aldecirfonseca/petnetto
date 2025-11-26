@@ -30,6 +30,8 @@ $routes->group('Veterinarios', static function ($routes) {
     $routes->get('index', 'Veterinarios::index');
     $routes->get('form/(:alpha)/(:num)', 'Veterinarios::form/$1/$2');
     $routes->get('form/(:alpha)', 'Veterinarios::form/$1');
+    $routes->get('listar', 'Veterinarios::listar'); 
+    $routes->post('listar', 'Veterinarios::listar');
     $routes->post('store', 'Veterinarios::store');
     $routes->post('delete', 'Veterinarios::delete');
 });

@@ -22,6 +22,7 @@ class VeterinariosModel extends BaseModel
 
     protected $useTimestamps = true;
     protected $useSoftDeletes = true;
+    protected $deletedField  = 'deleted_at';
 
     protected $validationRules = [
         "nome"  => [
@@ -41,4 +42,11 @@ class VeterinariosModel extends BaseModel
             "rules" => 'required'
         ]
     ];
+
+    public function getVeterinariosSimples()
+    {
+        return $this->select('id, nome, especialidade, updated_at')
+            ->where('deleted_at', null)
+            ->findAll();
+    }
 }
