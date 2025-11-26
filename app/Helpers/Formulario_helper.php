@@ -18,7 +18,7 @@
         }
 
         $subTitulo  = $titulo;
-        $link       = '/lista';
+        $link       = '/';
         $icone      = 'list';
 
         if ($parametro['acao'] == 'new') {

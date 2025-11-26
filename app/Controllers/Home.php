@@ -2,6 +2,8 @@
 
 namespace App\Controllers;
 
+use App\Models\ServicosModel;
+
 class Home extends BaseController
 {
     public function __construct()
@@ -11,7 +13,10 @@ class Home extends BaseController
 
     public function index(): string
     {
-        return view("home");
+        $servicosModel = new ServicosModel();
+        $data = $servicosModel->where('statusRegistro', 1)->findAll();
+
+        return view("home", ['servicosAtivos' => $data]);
     }
 
     public function sobrenos()
@@ -26,7 +31,9 @@ class Home extends BaseController
 
     public function servicos()
     {
-        return view("servicos");
+        $servicosModel = new ServicosModel();
+        $data = $servicosModel->where('statusRegistro', 1)->findAll();
+        return view("servicos", ['servicosAtivos' => $data]);
     }
 
     public function precos()
@@ -40,12 +47,17 @@ class Home extends BaseController
     }
 
     public function contato()
-    {        
+    {
         return view("contato");
     }
 
     public function login()
     {
         return view("login");
+    }
+
+    public function criarNovaConta()
+    {
+        return view("criarNovaConta");
     }
 }
