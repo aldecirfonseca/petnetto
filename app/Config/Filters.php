@@ -79,8 +79,16 @@ class Filters extends BaseFilters
                     'home',
                     'login',
                     'login/*',
-                    'sobrenos',
                     'veterinarios',
+                    'usuario',
+                    'usuario/criarNovaConta',
+                    'usuario/store',
+                    'usuario/esqueciSenha',
+                    'usuario/enviarLink',
+                    'usuario/redefinirSenha/*',
+                    'usuario/salvarNovaSenha',
+                    'dev/loginAdmin'
+                    'servicos'
                     'SobreNos',
                     'SobreNos/*'
                 ]

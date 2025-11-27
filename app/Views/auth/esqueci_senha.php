@@ -10,9 +10,9 @@
             <div class="col-md-9 ftco-animate pb-5">
                 <p class="breadcrumbs mb-2">
                     <span class="mr-2"><a href="<?= base_url() ?>">Home <i class="ion-ios-arrow-forward"></i></a></span>
-                    <span>Login <i class="ion-ios-arrow-forward"></i></span>
+                    <span>Recuperar Senha <i class="ion-ios-arrow-forward"></i></span>
                 </p>
-                <h1 class="mb-0 bread">Área Administrativa</h1>
+                <h1 class="mb-0 bread">Esqueci Minha Senha</h1>
             </div>
         </div>
     </div>
@@ -24,29 +24,24 @@
             <div class="col-md-6 col-lg-5">
                 <div class="card">
                     <div class="card-body p-5">
-                        <h3 class="text-center mb-4">Login Administrativo</h3>
+                        <h3 class="text-center mb-4">Recuperar Senha</h3>
                         
-                        <!-- Mensagens de Sucesso/Erro -->
-                        <?php if (session()->getFlashdata('msgSucess')): ?>
-                            <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                <?= session()->getFlashdata('msgSucess') ?>
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                        <?php endif; ?>
+                        <p class="text-muted text-center">
+                            Digite seu e-mail cadastrado. Enviaremos um link para redefinir sua senha.
+                        </p>
 
+                        <!-- Mensagens -->
                         <?php if (session()->getFlashdata('msgError')): ?>
                             <div class="alert alert-danger alert-dismissible fade show" role="alert">
                                 <?= session()->getFlashdata('msgError') ?>
-                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
+                                <button type="button" class="close" data-dismiss="alert">
+                                    <span>&times;</span>
                                 </button>
                             </div>
                         <?php endif; ?>
 
-                        <!-- Formulário de Login -->
-                        <form method="POST" action="<?= base_url('login/processar') ?>">
+                        <!-- Formulário -->
+                        <form method="POST" action="<?= base_url('esqueci-senha/enviar') ?>">
                             <?= csrf_field() ?>
                             
                             <div class="form-group">
@@ -61,22 +56,12 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="senha">Senha</label>
-                                <input type="password" 
-                                       class="form-control" 
-                                       id="senha" 
-                                       name="senha" 
-                                       placeholder="••••••" 
-                                       required>
-                            </div>
-
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+                                <button type="submit" class="btn btn-primary btn-block">Enviar Link de Recuperação</button>
                             </div>
 
                             <div class="text-center">
-                                <a href="<?= base_url('esqueci-senha') ?>" class="text-muted">
-                                    Esqueci minha senha
+                                <a href="<?= base_url('login') ?>" class="text-muted">
+                                    <i class="fa fa-arrow-left"></i> Voltar para Login
                                 </a>
                             </div>
                         </form>

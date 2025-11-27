@@ -15,21 +15,24 @@ class Auth implements FilterInterface
             return redirect("login");
         }
 
-        // está vericando o nível do login (nivel USUÁRIO)
-        // Visantantes
-        if ((int)session()->getTempData("userNivel") == 1) {
+        $nivel = (int)session()->getTempData("userNivel");
 
-            $segments = $request->getUri()->getSegments(0);
+        // Descobre qual controller está sendo acessado
+        $segments = $request->getUri()->getSegments();
+        $controller = $segments[0] ?? '';
 
-            if (count($segments) > 0) {
-                if (in_array($segments[0], ["Usuario", "Servicos", "Veterinario"])) {
-                    return redirect()
-                        ->to("sistema")
-                        ->with("msgError", "Você não tem permissão para acessar essa página!   ");
-                }
+        // Se for nível 1, bloqueia apenas rotas administrativas
+        if ($nivel === 1) {
+
+            // BLOQUEAR APENAS UsuarioAdm
+            if ($controller === "UsuarioAdm") {
+                return redirect()
+                    ->to("/login")
+                    ->with("msgError", "Você não tem permissão para acessar essa área.");
             }
 
-            return redirect("login");
+            // Usuário comum pode acessar normalmente suas rotas
+            return; 
         }
     }
 
